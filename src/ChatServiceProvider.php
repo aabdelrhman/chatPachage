@@ -16,7 +16,6 @@ class ChatServiceProvider extends ServiceProvider{
             __DIR__ . '/Controllers' => app_path('Http/Controllers/vendor/Chatify'),
             __DIR__.'/nodeServer/package.json' => base_path().'/nodeServer',
             __DIR__.'/views' =>resource_path('views/vendor/chat')
-
         ]);
     }
 
