@@ -11,6 +11,6 @@ class ChannelService extends BaseClass{
 
     public function destroy($channel_id){
         $channel = $this->findById(new Channel , $channel_id);
-        $channel->delete();
+        $channel?->delete();
     }
 }
