@@ -6,7 +6,7 @@ use Abdelrhman\Chat\Requests\StoreMessageRequest;
 use Abdelrhman\Chat\Services\MessageService;
 use App\Http\Controllers\Controller;
 
-class messageController extends Controller{
+class MessageController extends Controller{
 
     private $messageService;
 
