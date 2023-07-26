@@ -1,0 +1,13 @@
+{
+    "name": "abdelrhman/chat",
+    "description": "first package for chat module",
+    "type": "library",
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "Abdelrhman\\Chat\\": "src/"
+        }
+    },
+    "minimum-stability": "dev",
+    "require": {}
+}
