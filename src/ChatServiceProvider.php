@@ -12,7 +12,9 @@ class ChatServiceProvider extends ServiceProvider{
         $this->loadMigrationsFrom(__DIR__ . '/database/migrations');
 
         $this->publishes([
-            __DIR__.'/nodeServer' => base_path().'/nodeServer',
+            __DIR__.'/nodeServer/server.js' => base_path().'/nodeServer',
+            __DIR__ . '/Controllers' => app_path('Http/Controllers/vendor/Chatify'),
+            __DIR__.'/nodeServer/package.json' => base_path().'/nodeServer',
             __DIR__.'/views' =>resource_path('views/vendor/chat')
 
         ]);
