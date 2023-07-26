@@ -5,7 +5,7 @@ use Illuminate\Support\Facades\Auth;
 
 class ChannelService extends BaseClass{
     public function create($data){
-        array_push($data['users'] , Auth::user()->id);
+        array_push($data['users'] , ['user_id' => Auth::user()->id]);
         Channel::create()->users()->createMany($data['users']);
     }
 
