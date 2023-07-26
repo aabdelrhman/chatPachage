@@ -1,9 +1,11 @@
 <?php
 namespace Abdelrhman\Chat\Services;
 use Abdelrhman\Chat\Models\Channel;
+use Illuminate\Support\Facades\Auth;
 
 class ChannelService extends BaseClass{
     public function create($data){
+        array_push(Auth::user()->id , $data['users']);
         Channel::create()->users()->createMany($data['users']);
     }
 
