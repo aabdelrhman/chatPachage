@@ -2,4 +2,6 @@
 
 use Abdelrhman\Chat\Controllers\ChatController;
 use Illuminate\Support\Facades\Route;
-Route::get('test' , [ChatController::class , 'test']);
+Route::get('chat' , function(){
+    return view('chat.chat');
+});
