@@ -8,6 +8,12 @@
             "Abdelrhman\\Chat\\": "src/"
         }
     },
-    "minimum-stability": "dev",
-    "require": {}
+    "require": {},
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Abdelrhman\\Chat\\ChatServiceProvider"
+            ]
+        }
+    }
 }
