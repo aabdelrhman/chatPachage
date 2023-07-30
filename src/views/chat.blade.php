@@ -18,7 +18,7 @@ Body
   box-sizing: border-box;
 }
 
-html,
+html,  
 body {
   height: 100%;
 }
