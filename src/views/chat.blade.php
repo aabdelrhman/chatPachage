@@ -18,7 +18,7 @@ Body
   box-sizing: border-box;
 }
 
-html,  
+html,
 body {
   height: 100%;
 }
@@ -453,16 +453,23 @@ Bounce
 
 </div>
 <div class="bg"></div>
+
+<script src="https://code.jquery.com/jquery-3.6.0.js"></script>
         <script src="https://cdn.socket.io/4.0.1/socket.io.min.js" integrity="sha384-LzhRnpGmQP+lOvWruF/lgkcqD+WDVt9fU3H4BWmwP5u5LTmkUGafMcpZKNObVMLU" crossorigin="anonymous"></script>
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/malihu-custom-scrollbar-plugin/3.1.3/jquery.mCustomScrollbar.concat.min.js"></script>
         <script>
+            let ip_address = '127.0.0.1';
+            let socket_port = '3000';
+            let socket = io(ip_address + ':' + socket_port);
+            socket.on('sendChatToClient', (message) => {
+                $('<div class="message">' + message + '</div>').appendTo($('.mCSB_container'));
+            });
             var $messages = $('.messages-content'),
     d, h, m,
     i = 0;
 
-$(window).load(function() {
+$(window).on('load', function () {
   $messages.mCustomScrollbar();
 });
 
@@ -479,27 +486,9 @@ function insertMessage() {
   if ($.trim(msg) == '') {
     return false;
   }
-    let ip_address = '127.0.0.1';
-    let socket_port = '3000';
-    let socket = io(ip_address + ':' + socket_port);
 
-    let chatInput = $('#chatInput');
-
-    chatInput.keypress(function(e) {
-        let message = $(this).html();
-        console.log(message);
-        if(e.which === 13 && !e.shiftKey) {
-            socket.emit('sendChatToServer', message);
-            chatInput.html('');
-            return false;
-        }
-    });
-
-    socket.on('sendChatToClient', (message) => {
-        $('<div class="message message-personal">' + msg + '</div>').appendTo($('.mCSB_container')).addClass('new');
-    });
-
-  setDate();
+    socket.emit('sendChatToServer', msg);
+    $('<div class="message message-personal">' + msg + '</div>').appendTo($('.mCSB_container')).addClass('new');
   $('.message-input').val(null);
   updateScrollbar();
 }
