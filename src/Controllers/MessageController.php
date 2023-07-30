@@ -19,7 +19,8 @@ class MessageController extends Controller{
     }
 
     public function messages($channel_id){
-        return $this->messageService->getMessageBychannel($channel_id);
+        $messages = $this->messageService->getMessageBychannel($channel_id);
+        return view('chat::chat' , compact('messages'));
     }
 
     public function lastMessage($channel_id){

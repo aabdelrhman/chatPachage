@@ -17,7 +17,7 @@ class ChannelController extends Controller{
     }
     public function store(CreateChannelRequest $request){
         $this->chaneelService->create($request->validated());
-        return 'success';
+        return view('chat::chat');
     }
 
     public function destroy(Request $request){
