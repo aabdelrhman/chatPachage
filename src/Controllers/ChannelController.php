@@ -7,7 +7,7 @@ use Abdelrhman\Chat\Requests\CreateChannelRequest;
 use Abdelrhman\Chat\Services\ChannelService;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-
+ 
 class ChannelController extends Controller{
 
     private $chaneelService;
