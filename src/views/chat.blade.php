@@ -40,7 +40,7 @@ body {
   z-index: 1;
   background: url("https://images.unsplash.com/photo-1451186859696-371d9477be93?crop=entropy&fit=crop&fm=jpg&h=975&ixjsv=2.1.0&ixlib=rb-0.3.5&q=80&w=1925") no-repeat 0 0;
   filter: blur(80px);
-  transform: scale(1.2); 
+  transform: scale(1.2);
 }
 
 /*--------------------
@@ -425,7 +425,7 @@ Bounce
 
 <div class="chat">
   <div class="chat-title">
-    <h1>{{ $messages[0]->sender->name }}</h1>
+    <h1>{{ $messages[0]?->sender?->name }}</h1>
     <h2>Supah</h2>
     <figure class="avatar">
       <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/156381/profile/profile-80.jpg" /></figure>
